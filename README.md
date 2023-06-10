@@ -1,9 +1,14 @@
-## Introduction
+# Introduction to my Streamlit app
 
-This is an introduction to my streamlit application.
+## Data Vizualizer
 
-it consists of the following tools
+This app allows you to choose a csv file and display information about it such as:
 
-1. item 1
-2. item 2
-3. item 3
+1. The data itself
+2. The shape of the data set
+3. The data types of each column
+
+After selecting a column that you want to observe, the data visualizer will
+
+1. If the column holds numerical data, it will give a five number summary of the data and display a histogram showing the distribution of the data.
+2. If the column holds categorical data, it will display a barplot showing the distribution of the data. 

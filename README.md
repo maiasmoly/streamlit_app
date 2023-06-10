@@ -2,6 +2,8 @@
 
 ## Data Vizualizer
 
+[Link to the streamlit apllication](https://maiasmoly-streamlit-app-app-rselz7.streamlit.app/)
+
 This app allows you to choose a csv file and display information about it such as:
 
 1. The data itself

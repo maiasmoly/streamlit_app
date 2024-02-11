@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Title
-st.title('Data Visualizer')
+st.title('Data Visualizer!')
 st.header("Vizualize any column of a data set and see it's distribution!")
 
 # Display file uploader:

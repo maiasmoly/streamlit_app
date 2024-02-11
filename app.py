@@ -8,7 +8,7 @@ st.title('Data Visualizer')
 st.header("Vizualize any column of a data set and see it's distribution: ")
 
 # Display file uploader:
-uploaded_file = st.file_uploader("Choose a file to upload! Make sure it's a csv!")
+uploaded_file = st.file_uploader("Choose a file to upload and make sure it's a csv!")
 
 if uploaded_file is not None:
     # Read in chosen csv file

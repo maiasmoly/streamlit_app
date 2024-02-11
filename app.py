@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Title
 st.title('Data Visualizer')
-st.header("Vizualize any column of a data set and see it's distribution!")
+st.header("Vizualize any column of a data set and see it's distribution: ")
 
 # Display file uploader:
 uploaded_file = st.file_uploader("Choose a file to upload! Make sure it's a csv!")

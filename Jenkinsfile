@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { Dockerfile true }
 
     stages {
         stage('Checkout from streamlit github repository') {

@@ -10,7 +10,7 @@ pipeline {
             } 
         stage('Build docker image from github dockerfile') {
              steps {
-               sh 'docker build Dockerfile -t "streamlit-docker-img"'
+               sh ‘docker build -t my-image:${BUILD_NUMBER} .’
                echo 'Successfully built docker image'
             }
         }

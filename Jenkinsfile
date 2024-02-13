@@ -12,7 +12,8 @@ pipeline {
              steps {
                sh 'docker build Dockerfile -t "streamlit-docker-img"'
                echo 'Successfully built docker image'
+            }
         }
-    }
+   }
 }
 

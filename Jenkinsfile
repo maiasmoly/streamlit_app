@@ -11,7 +11,7 @@ pipeline {
        } 
         stage('Build docker image from github dockerfile') {
              steps {
-	       sh 'sudo docker images'
+	       sh 'service docker status'
             }
         }
    }

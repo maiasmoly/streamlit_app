@@ -11,7 +11,8 @@ pipeline {
        } 
         stage('Build docker image from github dockerfile') {
              steps {
-	       sh 'docker ps'
+	       sh 'systemctl start docker'
+               sh 'docker ps'
             }
         }
    }

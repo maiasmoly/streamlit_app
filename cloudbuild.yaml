@@ -3,5 +3,9 @@ steps:
   script: |
     docker build -t us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image:latest .
   automapSubstitutions: true
+- name: 'gcr.io/cloud-builders/gcloud'
+  script: |
+    gcloud run deploy streamlit-image --image  us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image:latest --region us-central1 --platform managed --allow-unauthenticated --port 8501
+  automapSubstitutions: true
 images:
 - 'us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image:latest'

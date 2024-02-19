@@ -9,12 +9,11 @@ pipeline {
                 sh 'ls -l'
             }
        } 
-        stage('Build docker image from github dockerfile') {
-             steps {
-	       sh 'service docker start'
-               sh 'docker ps'
-            }
+        stage('Build') {
+            steps {
+                googleCloudBuild  credentialsId: 'friendly-vigil-414000', source: local('.'), request: file('cloudbuild.yaml')
+            }        
+
         }
    }
 }
-

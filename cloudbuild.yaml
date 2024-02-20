@@ -1,11 +1,26 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  script: |
-    docker build -t us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image:latest .
-  automapSubstitutions: true
-- name: 'gcr.io/cloud-builders/gcloud'
-  script: |
-    gcloud run deploy streamlit-image --image  us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image:latest --region us-central1 --platform managed --allow-unauthenticated --port 8501
-  automapSubstitutions: true
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+    - 'run'
+    - 'deploy'
+    - 'streamlit-image'
+    - '--image'
+    - 'us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image'
+    - '--region'
+    - 'us-central1'
+    - '--platform'
+    - 'managed'
+    - '--allow-unauthenticated'
+    - '--port'
+    - '8501'
 images:
-- 'us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image:latest'
+  - 'us-west2-docker.pkg.dev/$PROJECT_ID/jenkins-repo/streamlit-image'
+
